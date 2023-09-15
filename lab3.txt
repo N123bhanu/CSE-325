@@ -1,0 +1,176 @@
+                                                          Experient 3- File Manipulation using System Calls
+
+Aim_____
+
+The objective of this laboratory is to introduce the working behind the copy(cp) command. Copy(cp) command uses system calls like open, read, write and Iseek to copy the contents of one file to another and read what users enters and write the same in the file.
+
+Learning Objective___________________
+
+Student will be able to learn the working of system calls and the working behind some most used command in Linux shell.
+
+Description of File System calls_____________________
+
+This section provides syntax of system calls used in this chapter. More about the system calls can be read using manual page/ help in Linux shell.
+
+---open: to create a file and open the file in read/write and append mode.
+
+--- read: to open a file in read mode and read from file or console.
+
+---write: to open a file in write mode and write on file or console. 
+
+---close: to close a file.
+
+---Iseek: to set the pointer inside the file to a position.
+
+System calls for file management are structures as follows:
+
+SYNTAX OF SYSTEM CALLS
+
+OPEN SYSTEM CALL_________________________
+
+int return = open("file name",O_CREAT | O_RDONLY | O_WRONLY, 666);
+
+READ/WRITE SYSTEM CALL
+
+int return =[read/write] (int fd, char buffer, bytes)
+
+Iseek system call
+
+int return=Iseek(int fd, int offset, whence);
+
+SAMPLE PROGRAMS:___________________________
+
+1. Program to create and open a file using system calls
+
+ #include <stdio.h> 
+
+#include <fcntl.h>
+
+int main(){
+
+int n, m;
+
+n = open("new_file", O_RDONLY);
+
+ printf("File descriptor is %d\n", n);
+
+m= open("new_filel", O_CREAT | O_WRONLY, 0777); 
+
+printf("File descriptor is %d\n", m);
+
+return 0;
+
+}
+
+2. Program to read from console and write to console 
+
+#include <stdio.h> 
+
+#include <fcntl.h>
+
+int main(){
+
+int n, m; 
+
+char buffer[100];
+
+n = write(1, "Hello World", 11); 
+
+printf("Number of bytes written: %d\n", n);
+
+m = read(0, buffer, 12); 
+
+printf("Number of bytes read: %d\n", m);
+
+return 0;
+
+}
+
+3. Program to append a file
+
+#include <stdio.h>
+
+#include <fcntl.h>
+
+int main(){
+
+int a, b, c, d; 
+
+char buffer[100];
+
+a = open("new_file2.txt", O_WRONLY | O_APPEND, 0777); 
+
+printf("File descriptor is %d\n", a);
+
+b= read(0, buffer, 10); 
+
+c=write(a, buffer, b);
+
+printf("Value of b: %d, c: %d", b, c);
+
+return 0;
+
+}
+
+4. Program to read and write from and to a file 
+
+#include <stdio.h> 
+
+#include <fcntl.h>
+
+int main(){
+
+int a, b, c, d; 
+
+char buffer[100];
+
+a = open("new_file2", O_CREAT | O_WRONLY, 0777);
+
+printf("File descriptor is %d\n", a);
+
+b= read(0, buffer,10);
+
+c = write(a, buffer, b);
+
+printf("Value of b: %d, c: %d", b, c);
+
+return 0;
+
+}
+
+LAB EXERCISES:-------------------
+
+1. Create a program using system calls to copy: either the first half or the second half of a file into a new file.
+
+2. Develop a program using system calls to read input from the console until the user inputs '$', and then save the input into a file.
+
+3. Design a program using system calls to read the contents of a file without using a char array and display the contents directly on the console. Please refrain from using built- in functions like sizeof() and strlen().
+
+VIVA :----------------------------------------
+
+1.Which system call is used to change the position of the file pointer?
+A)The system call used to change the position of the file pointer is lseek().
+
+2.What does the read system call return?
+A)The read system call returns the number of bytes read from the file descriptor. If it reaches the end of the file, it returns 0 to indicate the end of the file. If an error occurs, it returns -1.
+
+3.What value does the open system call return?
+A)The open system call returns a file descriptor, which is an integer representing the file or -1 if an error occurs during the open operation.
+
+4.What is passed as the first argument of the read/write system call?
+A)The first argument of the read and write system calls is the file descriptor from which you want to read or write data.
+
+5.If a file is to be appended, in which mode should it be opened using the open system call?
+A)To open a file for appending, you should use the mode O_APPEND when calling the open system call.
+
+6.How can we use the lseek system call to handle file appending?
+A)To handle file appending using lseek, you can use lseek with the file descriptor of the open file, and set the offset argument to 0 and the whence argument to SEEK_END. This will move the file pointer to the end of the file, allowing you to append data.
+
+7.What value does the lseek system call return?
+A)The lseek system call returns the resulting offset location in the file, or -1 if an error occurs.
+
+8.Which system call can be used to determine the size of a file?
+A)You can use the stat or fstat system call to determine the size of a file. The st_size field in the structure returned by these calls contains the size of the file in bytes.
+
+9.How can we find the size of a file using the lseek system call?
+A)You can find the size of a file using the lseek system call by seeking to the end of the file using lseek(fd, 0, SEEK_END). The return value of this lseek operation will be the size of the file in bytes.
