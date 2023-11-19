@@ -1,0 +1,111 @@
+
+Cisco Packet Tracer PC Command Line 1.0
+C:\>ping 10.10.10.10
+
+Pinging 10.10.10.10 with 32 bytes of data:
+
+Reply from 10.10.10.10: bytes=32 time<1ms TTL=255
+Reply from 10.10.10.10: bytes=32 time<1ms TTL=255
+Reply from 10.10.10.10: bytes=32 time<1ms TTL=255
+Reply from 10.10.10.10: bytes=32 time<1ms TTL=255
+
+Ping statistics for 10.10.10.10:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 0ms, Maximum = 0ms, Average = 0ms
+
+C:\>ping 20.20.20.1
+
+Pinging 20.20.20.1 with 32 bytes of data:
+
+Request timed out.
+Reply from 20.20.20.1: bytes=32 time=1ms TTL=127
+Reply from 20.20.20.1: bytes=32 time<1ms TTL=127
+Reply from 20.20.20.1: bytes=32 time=12ms TTL=127
+
+Ping statistics for 20.20.20.1:
+    Packets: Sent = 4, Received = 3, Lost = 1 (25% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 0ms, Maximum = 12ms, Average = 4ms
+
+C:\>ping 30.30.30.1
+
+Pinging 30.30.30.1 with 32 bytes of data:
+
+Request timed out.
+Reply from 30.30.30.1: bytes=32 time=1ms TTL=127
+Reply from 30.30.30.1: bytes=32 time<1ms TTL=127
+Reply from 30.30.30.1: bytes=32 time=12ms TTL=127
+
+Ping statistics for 30.30.30.1:
+    Packets: Sent = 4, Received = 3, Lost = 1 (25% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 0ms, Maximum = 12ms, Average = 4ms
+
+C:\>ping 40.40.40.1
+
+Pinging 40.40.40.1 with 32 bytes of data:
+
+Request timed out.
+Reply from 40.40.40.1: bytes=32 time<1ms TTL=127
+Reply from 40.40.40.1: bytes=32 time<1ms TTL=127
+Reply from 40.40.40.1: bytes=32 time<1ms TTL=127
+
+Ping statistics for 40.40.40.1:
+    Packets: Sent = 4, Received = 3, Lost = 1 (25% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 0ms, Maximum = 0ms, Average = 0ms
+
+C:\>ping 20.20.20.1
+
+Pinging 20.20.20.1 with 32 bytes of data:
+
+Reply from 20.20.20.1: bytes=32 time=18ms TTL=127
+Reply from 20.20.20.1: bytes=32 time<1ms TTL=127
+Reply from 20.20.20.1: bytes=32 time=1ms TTL=127
+Reply from 20.20.20.1: bytes=32 time<1ms TTL=127
+
+Ping statistics for 20.20.20.1:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 0ms, Maximum = 18ms, Average = 4ms
+
+C:\>tracert 20.20.20.1
+
+Tracing route to 20.20.20.1 over a maximum of 30 hops: 
+
+  1   0 ms      0 ms      0 ms      10.10.10.10
+  2   1 ms      0 ms      0 ms      20.20.20.1
+
+Trace complete.
+
+C:\>ipconfig
+
+FastEthernet0 Connection:(default port)
+
+   Connection-specific DNS Suffix..: 
+   Link-local IPv6 Address.........: FE80::2D0:BAFF:FE27:EB95
+   IPv6 Address....................: ::
+   IPv4 Address....................: 10.10.10.1
+   Subnet Mask.....................: 255.0.0.0
+   Default Gateway.................: ::
+                                     10.10.10.10
+
+Bluetooth Connection:
+
+   Connection-specific DNS Suffix..: 
+   Link-local IPv6 Address.........: ::
+   IPv6 Address....................: ::
+   IPv4 Address....................: 0.0.0.0
+   Subnet Mask.....................: 0.0.0.0
+   Default Gateway.................: ::
+                                     0.0.0.0
+
+C:\>arp -a
+  Internet Address      Physical Address      Type
+  10.10.10.2            000c.85d0.2a40        dynamic
+  10.10.10.10           00d0.ba33.3b01        dynamic
+
+C:\>
+C:\>https://github.com/07Sushant/C-Plus-Journey-/tree/main/Academic/DPP/Unit%202
+
